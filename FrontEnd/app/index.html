@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <title>Doce_Coração</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/global.css">
+
+</head>
+
+<body>
+    <!-- Header do Doce Coração -->
+    <header id="header">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="container">
+                <a href="index.html" class="navbar-logo">
+                    <!-- Substitue "logo.png" pelo caminho correto para o logo do Doce Coração -->
+                    <img src="styles/DC_logo.png" alt="Missão JHS Doce Coração">
+                </a>
+                <button class="navbar-toggle" aria-label="Abrir menu" aria-expanded="false"
+                    aria-controls="navbar-collapse">
+                    <span class="navbar-toggle-icon" aria-hidden="true">Menu</span>
+                </button>
+                <div class="navbar-collapse" id="navbar-collapse">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Inicio">
+                                Inicio
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Sobre-nos">
+                                sobre nós
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <a class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                                    Agenda
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">ação</a>
+                                    <a class="dropdown-item" href="#">outra ação</a>
+                                    <a class="dropdown-item" href="#">mais alguma coisa</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <a class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                                    Comunidade
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">ação</a>
+                                    <a class="dropdown-item" href="#">outra ação</a>
+                                    <a class="dropdown-item" href="#">mais alguma coisa</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Contato">
+                                Contato
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Fim da Navbar -->
+
+    </header>
+    <!-- Fim do Header do Doce Coração -->
+
+    <!-- Conteúdo Principal do Doce Coração -->
+    <main>
+        <!-- Seção Doce Coração_HOME -->
+        <section class="hero" id="Inicio">
+            <div class="container">
+                <div class="row">
+
+                    <div class="home-content">
+                        <div class="contents">
+                            <h2>Doce Coração</h2>
+                            <p>Habitar no Santuário do Doce Coração e ser uma vítima de oblação nos altares esquecidos
+                            </p>
+                            <p>Boas-vindas! Venha conhecer nosso Carisma!</p>
+                        </div>
+
+                        <div class="hero-actions">
+                            <a href="#" class="btn btn-primary">Visite-nos</a>
+                            <a href="#" class="btn btn-primary">Sou novo aqui!</a>
+                        </div>
+
+                        <div class="versiculo-diario">
+                            <h3>Versículo do Dia</h3>
+                            <p id="versiculo">
+                                <!-- integrar com API de versículos -->
+                                "O Senhor é o meu pastor; nada me faltará." - Salmo 23:1
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="home-img">
+                        <!-- colocar o objeto 3D -->
+                        <div class="container-3d-home">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Fim da Seção Doce Coração_HOME -->
+    </main>
+    <!-- Fim do Conteúdo Principal do Doce Coração -->
+
+    <!-- Seção Sobre nós -->
+    <section class="section-sobre-nos" id="sobre-nos">
+        <!-- Colocar seções como "Nossa História", "Missão, Visão e valores"  -->
+        <div class="container">
+            <div class="sobre-content">
+                <div class="sobre-intro">
+                    <h2>Sobre nós</h2>
+                    <p>O Doce Coração é uma comunidade de fé...</p>
+                </div>
+
+                <div class="sobre-mvv">
+                    <div class="mvv-card">
+                        <h3>Missão</h3>
+                        <p>Habitar no Santuário do Doce Coração...</p>
+                    </div>
+                    <div class="mvv-card">
+                        <h3>Visão</h3>
+                        <p>Ser uma comunidade vibrante e acolhedora...</p>
+                    </div>
+                    <div class="mvv-card">
+                        <h3>Valores</h3>
+                        <p>Adoração autêntica, ensino bíblico, comunhão...</p>
+                    </div>
+                </div>
+
+                <div class="sobre-equipe">
+                    <h3>Nossa equipe</h3>
+                    <div class="equipe-grid">
+                        <div class="lider-card">
+                            <img src="styles/renato_lider.png" alt="Renato Afonso">
+                            <p class="lider-nome">Renato Afonso</p>
+                            <p class="lider-cargo">Fundador</p>
+                        </div>
+                        <!-- repetir para cada membro -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Carrosel -->
+        <div class="section-carrossel" id="carrossel">
+            <div class="carrossel-track">
+                <div class="card">1</div>
+                <div class="card">2</div>
+                <div class="card">3</div>
+                <div class="card">4</div>
+                <div class="card">5</div>
+                <div class="card">6</div>
+            </div>
+            <div aria-hidden="true" class="carrossel-track">
+                <div class="card">1</div>
+                <div class="card">2</div>
+                <div class="card">3</div>
+                <div class="card">4</div>
+                <div class="card">5</div>
+                <div class="card">6</div>
+            </div>
+
+        </div>
+
+    </section>
+    <!-- Fim da Seção Sobre nós -->
+
+    <!-- Seção Agenda -->
+    <section class="section-agenda" id="agenda">
+        <div class="container">
+
+            <div class="agenda-intro">
+                <h2>Atividades da comunidade</h2>
+                <p>Confira os próximos eventos e venha participar</p>
+            </div>
+
+            <div class="eventos-grid">
+
+                <article class="evento-card">
+                    <div class="evento-img">
+                        <img src="styles/catedral.jpeg" alt="Missão de Rua">
+                        <span class="evento-badge">Missão</span>
+                    </div>
+                    <div class="evento-body">
+                        <h3 class="evento-titulo">Missão de Rua</h3>
+                        <div class="evento-meta">
+                            <div class="evento-meta-item">
+                                <span class="evento-meta-label">Datas</span>
+                                <ul class="evento-datas">
+                                    <li>10/04 às 19h</li>
+                                    <li>12/04 às 08h</li>
+                                    <li>24/04 às 19h</li>
+                                </ul>
+                            </div>
+                            <div class="evento-meta-item">
+                                <span class="evento-meta-label">Local</span>
+                                <p>Catedral Basílica de Nossa Senhora das Neves</p>
+                            </div>
+                        </div>
+                        <p class="evento-descricao">Cada ato de bondade ao próximo é como se fosse feito ao próprio
+                            Deus. Venha participar!</p>
+                        <button type="button" class="btn btn-primary evento-btn"
+                            aria-label="Inscrever-se em Missão de Rua">
+                            Inscrever-se
+                        </button>
+                    </div>
+                </article>
+
+                <article class="evento-card">
+                    <div class="evento-img">
+                        <img src="styles/eucaristia.jpg" alt="Adoração Mensal">
+                        <span class="evento-badge">Oração</span>
+                    </div>
+                    <div class="evento-body">
+                        <h3 class="evento-titulo">Adoração Mensal</h3>
+                        <div class="evento-meta">
+                            <div class="evento-meta-item">
+                                <span class="evento-meta-label">Data</span>
+                                <ul class="evento-datas">
+                                    <li>11/04 às 19h</li>
+                                </ul>
+                            </div>
+                            <div class="evento-meta-item">
+                                <span class="evento-meta-label">Local</span>
+                                <p>A definir</p>
+                            </div>
+                        </div>
+                        <p class="evento-descricao">Junte-se a nós em adoração e oração mensal. Venha participar!</p>
+                        <button type="button" class="btn btn-primary evento-btn"
+                            aria-label="Inscrever-se em Adoração Mensal">
+                            Inscrever-se
+                        </button>
+                    </div>
+                </article>
+
+                <article class="evento-card">
+                    <div class="evento-img">
+                        <img src="styles/espiritualidade.png" alt="Espiritualidade">
+                        <span class="evento-badge">Formação</span>
+                    </div>
+                    <div class="evento-body">
+                        <h3 class="evento-titulo">Espiritualidade</h3>
+                        <div class="evento-meta">
+                            <div class="evento-meta-item">
+                                <span class="evento-meta-label">Data</span>
+                                <ul class="evento-datas">
+                                    <li>25/04 às 19:30h</li>
+                                </ul>
+                            </div>
+                            <div class="evento-meta-item">
+                                <span class="evento-meta-label">Local</span>
+                                <p>Centro Cultural Horizonte - João Pessoa, PB.</p>
+                            </div>
+                        </div>
+                        <p class="evento-descricao">Descubra a profundidade da espiritualidade em nossa comunidade.</p>
+                        <button type="button" class="btn btn-primary evento-btn"
+                            aria-label="Inscrever-se em Espiritualidade">
+                            Inscrever-se
+                        </button>
+                    </div>
+                </article>
+
+                <article class="evento-card">
+                    <div class="evento-img">
+                        <img src="styles/outros-eventos.jpg" alt="Outros eventos">
+                        <span class="evento-badge evento-badge--neutro">Em breve</span>
+                    </div>
+                    <div class="evento-body">
+                        <h3 class="evento-titulo">Outros eventos</h3>
+                        <div class="evento-meta">
+                            <div class="evento-meta-item">
+                                <span class="evento-meta-label">Data</span>
+                                <p>A definir</p>
+                            </div>
+                            <div class="evento-meta-item">
+                                <span class="evento-meta-label">Local</span>
+                                <p>A definir</p>
+                            </div>
+                        </div>
+                        <p class="evento-descricao">Participe de nossos outros eventos e atividades.</p>
+                        <button type="button" class="btn btn-primary evento-btn"
+                            aria-label="Inscrever-se em outros eventos" disabled>
+                            Em breve
+                        </button>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+    <!-- Fim da Seção Agenda -->
+
+    <!-- Seção Comunidade -->
+    <section class="section-comunidade" id="comunidade">
+        <!-- Conteúdo da seção Comunidade -->
+        <!-- pular por enquanto -->
+    </section>
+    <!-- Fim da Seção Comunidade -->
+
+    <!-- Seção Contato -->
+    <section class="section-contato" id="contato">
+        <div class="container">
+
+            <div class="contato-intro">
+                <h2>Faça parte</h2>
+                <p>Há um lugar para você aqui, seja qual for o seu passo</p>
+            </div>
+
+            <!-- Parte 1: Como se integrar -->
+            <div class="integracao-steps">
+                <div class="step-card">
+                    <div class="step-numero">01</div>
+                    <h3 class="step-titulo">Venha a uma atividade</h3>
+                    <p class="step-desc">Participe de uma Missão de Rua ou Adoração Mensal. Não precisa de nada — só
+                        aparecer já é o começo.</p>
+                    <a href="#agenda" class="btn btn-outline">Ver agenda</a>
+                </div>
+                <div class="step-card">
+                    <div class="step-numero">02</div>
+                    <h3 class="step-titulo">Conheça a equipe</h3>
+                    <p class="step-desc">Nossa equipe está sempre disponível para conversar, tirar dúvidas e apresentar
+                        o carisma da missão.</p>
+                    <a href="https://wa.me/5583999999999" target="_blank" rel="noopener noreferrer"
+                        class="btn btn-outline">Falar pelo WhatsApp</a>
+                </div>
+                <div class="step-card">
+                    <div class="step-numero">03</div>
+                    <h3 class="step-titulo">Integre-se à missão</h3>
+                    <p class="step-desc">Descubra como seus dons e talentos podem servir à comunidade. Cada pessoa tem
+                        um papel único aqui.</p>
+                    <a href="https://www.instagram.com/docecoracaome/" target="_blank" rel="noopener noreferrer"
+                        class="btn btn-outline">Siga no Instagram</a>
+                </div>
+            </div>
+
+            <!-- Divisor -->
+            <div class="contato-divisor">
+                <span>ou contribua à distância</span>
+            </div>
+
+            <!-- Parte 2: Como contribuir -->
+            <div class="contribuicao-grid">
+
+                <div class="contribuicao-card">
+                    <div class="contribuicao-icone contribuicao-icone--oracao"></div>
+                    <h3>Ore por nós</h3>
+                    <p>Envie um pedido de oração ou nos diga que está orando pela missão. Isso nos fortalece muito.</p>
+                    <a href="#form-contato" class="btn btn-outline">Enviar mensagem</a>
+                </div>
+
+                <div class="contribuicao-card">
+                    <div class="contribuicao-icone contribuicao-icone--voluntario"></div>
+                    <h3>Seja voluntário</h3>
+                    <p>Nas Missões de Rua e atividades sociais, sempre precisamos de pessoas dispostas a servir.</p>
+                    <a href="https://wa.me/5583999999999?text=Quero%20ser%20voluntário" target="_blank"
+                        rel="noopener noreferrer" class="btn btn-outline">Quero ajudar</a>
+                </div>
+
+                <div class="contribuicao-card">
+                    <div class="contribuicao-icone contribuicao-icone--doacao"></div>
+                    <h3>Doe</h3>
+                    <p>Sua contribuição financia as atividades da missão — desde materiais até a chegada às comunidades
+                        mais distantes.</p>
+                    <a href="#doacoes" class="btn btn-outline">Como doar</a>
+                </div>
+
+            </div>
+
+            <!-- Formulário + Mapa -->
+            <div class="contato-grid">
+
+                <div class="contato-form-area">
+                    <form class="form-contato" id="form-contato" novalidate>
+                        <h3>Fale com a gente</h3>
+                        <p>Dúvidas, sugestões ou só um oi — estamos aqui.</p>
+
+                        <div class="form-group">
+                            <label for="nome">Nome</label>
+                            <input type="text" class="form-control" id="nome" name="nome"
+                                placeholder="Seu nome completo" required autocomplete="name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="seu@email.com"
+                                required autocomplete="email">
+                        </div>
+
+                        <!-- Assunto — ajuda a triagem das mensagens -->
+                        <div class="form-group">
+                            <label for="assunto">Assunto</label>
+                            <select class="form-control" id="assunto" name="assunto">
+                                <option value="">Selecione...</option>
+                                <option value="visita">Quero visitar</option>
+                                <option value="voluntario">Quero ser voluntário</option>
+                                <option value="doacao">Quero fazer uma doação</option>
+                                <option value="oracao">Pedido de oração</option>
+                                <option value="outro">Outro assunto</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensagem">Mensagem</label>
+                            <textarea class="form-control" id="mensagem" name="mensagem" rows="4"
+                                placeholder="Como podemos ajudar?" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            Enviar mensagem
+                        </button>
+                    </form>
+                </div>
+
+                <div class="contato-info-area">
+                    <div class="mapa-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2081.1617123351875!2d-34.93606245297288!3d-7.1425767216696725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ace968f97a851f%3A0xda0739f0f95acc7c!2zTWlzc8OjbyBFdWNhcsOtc3RpY2EgRG9jZSBDb3Jhw6fDo28!5e1!3m2!1spt-BR!2sbr!4v1776401899466!5m2!1spt-BR!2sbr"
+                            width="100%" height="340" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade" title="Localização da Missão JHS Doce Coração">
+                        </iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Fim da Seção Contato -->
+
+    <!-- Footer do Doce Coração -->
+    <footer>
+        <footer class="footer">
+            <div class="container">
+
+                <div class="footer-grid">
+
+                    <!-- Coluna 1: identidade -->
+                    <div class="footer-brand">
+                        <img src="styles/DC_logo.png" alt="Missão JHS Doce Coração" class="footer-logo">
+                        <p class="footer-brand-desc">
+                            Habitar no Santuário do Doce Coração e ser uma vítima de oblação nos altares esquecidos.
+                        </p>
+                        <div class="footer-redes">
+                            <a href="https://www.instagram.com/docecoracaome/" target="_blank" rel="noopener noreferrer"
+                                aria-label="Instagram da Missão JHS Doce Coração" class="footer-rede-link">
+                                Instagram
+                            </a>
+                            <a href="https://wa.me/5583999999999" target="_blank" rel="noopener noreferrer"
+                                aria-label="WhatsApp da Missão JHS Doce Coração" class="footer-rede-link">
+                                WhatsApp
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Coluna 2: navegação -->
+                    <div class="footer-nav">
+                        <h4 class="footer-col-titulo">Navegação</h4>
+                        <ul class="footer-links">
+                            <li><a href="#inicio">Início</a></li>
+                            <li><a href="#sobre-nos">Sobre nós</a></li>
+                            <li><a href="#agenda">Agenda</a></li>
+                            <li><a href="#contato">Contato</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Coluna 3: contato rápido -->
+                    <div class="footer-contato">
+                        <h4 class="footer-col-titulo">Contato</h4>
+                        <ul class="footer-links">
+                            <li>João Pessoa, PB</li>
+                            <li>
+                                <a href="https://wa.me/5583999999999" target="_blank" rel="noopener noreferrer">
+                                    (83) 99999-9999
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:contato@docecoracao.org">
+                                    contato@docecoracao.org
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!-- Rodapé inferior -->
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Missão JHS Doce Coração. Todos os direitos reservados.</p>
+                    <a href="#" class="footer-lgpd">Política de privacidade</a>
+                </div>
+
+            </div>
+        </footer>
+    </footer>
+    <!-- Fim do Footer do Doce Coração -->
+
+</body>
+
+</html>
