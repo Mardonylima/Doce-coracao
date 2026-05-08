@@ -229,7 +229,7 @@ h1, h2, h3, h4 {
    HERO — mobile primeiro
 ========================= */
 .hero {
-  background-image: url("/public/images/Jesus.jpg"); 
+  background-image: url("/assets/images/Jesus.jpg"); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
