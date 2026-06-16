@@ -1,0 +1,141 @@
+services:
+
+  api:
+    build:
+      context: ../backend
+      dockerfile: dockerfile
+    container_name: doce-api-dev  
+    restart: unless-stopped
+    env_file:
+      - envs/.env.dev
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+    volumes:
+      - maven_cache:/root/.m2
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    networks:
+      - backend
+
+  nextjs:
+    build:
+      context: ../frontend
+      dockerfile: dockerfile
+    container_name: doce-nextjs-dev
+    restart: unless-stopped
+    env_file:
+      - envs/.env.dev
+    environment:
+      NODE_ENV: development
+    volumes:
+      - ../frontend:/app
+      - /app/node_modules
+      - /app/.next
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+    networks:
+      - frontend
+      - backend
+
+  nginx:
+    image: nginx:1.28-alpine
+    container_name: doce-nginx-dev
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./docker/nginx/http.d:/etc/nginx/conf.d:ro
+    depends_on:
+      - api
+      - nextjs
+    networks:
+      - frontend
+      - backend
+
+  db:
+    image: postgres:15.8-alpine
+    container_name: doce-db-dev
+    restart: unless-stopped
+    env_file:
+      - envs/.env.dev
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "${DB_PORT}:5432"
+    volumes:
+      - postgres_dev_data:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks:
+      - backend
+
+  sonarqube:
+    image: sonarqube:lts-community
+    container_name: doce-sonarqube-dev
+    restart: unless-stopped
+    depends_on:
+      sonar_db:
+        condition: service_healthy
+    environment:
+      SONAR_JDBC_URL: jdbc:postgresql://sonar_db:5432/sonar
+      SONAR_JDBC_USERNAME: sonar
+      SONAR_JDBC_PASSWORD: sonar_password
+    ports:
+      - "9000:9000"
+    volumes:
+      - sonar_data:/opt/sonarqube/data
+      - sonar_extensions:/opt/sonarqube/extensions
+      - sonar_logs:/opt/sonarqube/logs
+    networks:
+      - sonar
+
+  sonar_db:
+    image: postgres:15.8-alpine
+    container_name: doce-sonar-db-dev
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: sonar
+      POSTGRES_PASSWORD: sonar_password
+      POSTGRES_DB: sonar
+    volumes:
+      - sonar_db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sonar"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks:
+      - sonar
+
+networks:
+  frontend:
+    driver: bridge
+
+  backend:
+    driver: bridge
+    internal: true
+
+  sonar:
+    driver: bridge
+
+volumes:
+  postgres_dev_data:
+  sonar_data:
+  sonar_extensions:
+  sonar_logs:
+  sonar_db_data:
+  maven_cache:
