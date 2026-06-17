@@ -1,0 +1,22 @@
+# extenções do vscode
+.vscode/
+
+# node modules
+node_modules/
+
+# next build
+.next/
+
+# arquivos de log
+*.log
+
+# arquivos de build
+dist/
+build/
+
+# arquivos de configuração local
+.env.dev
+.env.prod
+
+# arquivos de cache
+.cache/
