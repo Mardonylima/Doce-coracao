@@ -22,7 +22,7 @@ public class ConteudosEntity {
 
     @ManyToOne
     @JoinColumn(name = "tema_id")
-    private TemasEntity temaRelacionamento;
+    private TemaEntity temaRelacionamento;
 
     private String nivel;
 
