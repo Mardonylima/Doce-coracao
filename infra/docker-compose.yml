@@ -13,7 +13,7 @@ services:
     volumes:
       - maven_cache:/root/.m2
     ports:
-      - "8080:8080"
+      - "${BACKEND_PORT}:8080"
     depends_on:
       db:
         condition: service_healthy
@@ -35,7 +35,7 @@ services:
       - /app/node_modules
       - /app/.next
     ports:
-      - "3000:3000"
+      - "${FRONTEND_PORT}:5173"
     depends_on:
       - api
     networks:
@@ -47,7 +47,7 @@ services:
     container_name: doce-nginx-dev
     restart: unless-stopped
     ports:
-      - "80:80"
+      - "${NGINX_PORT}:80"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./nginx/http.d:/etc/nginx/conf.d:ro
@@ -125,7 +125,6 @@ networks:
 
   backend:
     driver: bridge
-    internal: true
 
   sonar:
     driver: bridge
