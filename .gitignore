@@ -23,3 +23,6 @@ build/
 
 # arquivos de cache
 .cache/
+
+# arquivos do git
+.idea/
