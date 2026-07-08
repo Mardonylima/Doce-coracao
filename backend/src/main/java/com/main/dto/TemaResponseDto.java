@@ -7,7 +7,7 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 @Builder
-public class TemaDto {
+public class TemaResponseDto {
 
     private String nome;
     private String slug;

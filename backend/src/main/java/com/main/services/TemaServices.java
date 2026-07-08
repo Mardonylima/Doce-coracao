@@ -1,7 +1,7 @@
 package com.main.services;
 
 import com.main.database.model.TemaEntity;
-import com.main.dto.TemaDto;
+import com.main.dto.TemaResponseDto;
 import com.main.repository.TemaRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -15,15 +15,15 @@ public class TemaServices {
 
     private final TemaRepository temaRepository;
 
-    public List<TemaDto> findAll() {
+    public List<TemaResponseDto> findAll() {
         return temaRepository.findAll()
             .stream()
             .map(this::toDto)
             .toList();
     }
 
-    private TemaDto toDto(TemaEntity temaEntity) {
-        return TemaDto.builder()
+    private TemaResponseDto toDto(TemaEntity temaEntity) {
+        return TemaResponseDto.builder()
             .nome(temaEntity.getNome())
             .slug(temaEntity.getSlug())
             .descricao(temaEntity.getDescricao())

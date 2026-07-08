@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.main.dto.TemaDto;
+import com.main.dto.TemaResponseDto;
 
 import lombok.RequiredArgsConstructor;
 
@@ -21,7 +21,7 @@ public class TemaController {
     
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<TemaDto> findAll() {
+    public List<TemaResponseDto> findAll() {
         return temaServices.findAll();
     }
 
