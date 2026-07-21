@@ -24,4 +24,10 @@ public class ConteudosController {
     public List<ConteudosResponseDto> findAll() {
         return conteudosServices.findAll();
     }
+
+    @GetMapping("/random/cotidiano")
+    @ResponseStatus(HttpStatus.OK)
+    public ConteudosResponseDto findRandomCotidiano() {
+        return conteudosServices.findRandomCotidiano();
+    }
 }

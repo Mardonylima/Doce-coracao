@@ -31,4 +31,9 @@ public class ConteudosServices {
             .nivel(conteudosEntity.getNivel())
             .build();
     }
+
+    public ConteudosResponseDto findRandomCotidiano() {
+        ConteudosEntity conteudosEntity = ConteudosRepository.findRandomCotidiano();
+        return toDto(conteudosEntity);
+    }
 }
