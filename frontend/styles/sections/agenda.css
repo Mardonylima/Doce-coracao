@@ -1,0 +1,209 @@
+.section-agenda {
+  background-color: var(--background);
+  padding: 60px 0;
+}
+
+.agenda-intro {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 48px;
+}
+
+.agenda-intro h2 {
+  font-size: 1.75rem;
+  color: var(--primary);
+  margin-bottom: var(--espaco-sm);
+  display: inline-block;
+}
+
+.agenda-intro h2::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+  margin: 10px auto 0;
+}
+
+.agenda-intro p {
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+}
+
+/* --- Grid de eventos --- */
+.eventos-grid {
+  display: grid;
+  grid-template-columns: 1fr;      /* 1 coluna no mobile */
+  gap: var(--espaco-lg);
+}
+
+/* --- Card individual --- */
+.evento-card {
+  background: var(--branco);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--sombra-card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transicao);
+}
+
+.evento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(38, 33, 92, 0.12);
+}
+
+/* --- Imagem do card --- */
+.evento-img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.evento-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.evento-card:hover .evento-img img {
+  transform: scale(1.04);  /* zoom suave ao passar o mouse */
+}
+
+/* --- Badge de categoria --- */
+.evento-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--primary);
+  color: var(--branco);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.evento-badge--neutro {
+  background: var(--texto-suave);
+}
+
+/* --- Corpo do card --- */
+.evento-body {
+  padding: var(--espaco-md) var(--espaco-lg);
+  display: flex;
+  flex-direction: column;
+  flex: 1;                /* empurra o botão para baixo */
+  gap: var(--espaco-md);
+}
+
+.evento-titulo {
+  font-size: 1.2rem;
+  color: var(--foreground);
+  line-height: 1.3;
+}
+
+/* --- Meta (data + local) --- */
+.evento-meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-sm);
+}
+
+.evento-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.evento-meta-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--primary);
+}
+
+.evento-datas {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.evento-datas li {
+  font-size: 0.875rem;
+  color: var(--foreground);
+  background: var(--background-terciario);
+  padding: 2px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--border-roxo);
+}
+
+.evento-meta-item p {
+  font-size: 0.875rem;
+  color: var(--texto-suave);
+}
+
+/* --- Descrição --- */
+.evento-descricao {
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+  line-height: 1.6;
+  flex: 1;               /* ocupa espaço restante, empurra botão */
+}
+
+/* --- Botão do card --- */
+.evento-btn {
+  width: 100%;
+  margin-top: auto;
+}
+
+.evento-btn:disabled {
+  background: var(--border);
+  color: var(--texto-suave);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.evento-btn:disabled:hover {
+  background: var(--border);
+  outline: none;
+  transform: none;
+}
+
+@media (min-width: 768px) {
+  /* Agenda */
+  .section-agenda {
+    padding: 80px 0;
+  }
+
+  .agenda-intro h2 {
+    font-size: 2rem;
+  }
+
+  .eventos-grid {
+    grid-template-columns: repeat(2, 1fr);   /* 2 colunas no tablet */
+  }
+
+  .evento-meta {
+    flex-direction: row;                     /* data e local lado a lado */
+    gap: var(--espaco-lg);
+  }
+}
+
+@media (min-width: 1024px) {
+  
+  .eventos-grid {
+    grid-template-columns: repeat(4, 1fr);  /* 4 colunas no desktop */
+  }
+
+  .integracao-steps {
+    gap: var(--espaco-lg);
+  }
+}

@@ -1,0 +1,319 @@
+.section-contato {
+  background-color: var(--background-terciario);
+  padding: 60px 0;
+}
+
+.contato-intro {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 48px;
+}
+
+.contato-intro h2 {
+  font-size: 1.75rem;
+  color: var(--primary);
+  margin-bottom: var(--espaco-sm);
+  display: inline-block;
+}
+
+.contato-intro h2::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+  margin: 10px auto 0;
+}
+
+.contato-intro p {
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+}
+
+/* --- Steps de integração --- */
+.integracao-steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-md);
+  margin-bottom: 48px;
+}
+
+.step-card {
+  background: var(--branco);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: var(--espaco-lg);
+  box-shadow: var(--sombra-card);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-sm);
+}
+
+.step-numero {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  opacity: 0.6;
+}
+
+.step-titulo {
+  font-size: 1.1rem;
+  color: var(--primary);
+  line-height: 1.3;
+}
+
+.step-desc {
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+  line-height: 1.6;
+  flex: 1;
+}
+
+/* --- Botão outline --- */
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border: 1.5px solid var(--primary);
+  align-self: flex-start;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.9rem;
+}
+
+.btn-outline:hover,
+.btn-outline:focus {
+  background: var(--primary);
+  color: var(--branco);
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* --- Divisor --- */
+.contato-divisor {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-md);
+  margin: 48px 0;
+  text-align: center;
+}
+
+.contato-divisor::before,
+.contato-divisor::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.contato-divisor span {
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  white-space: nowrap;
+}
+
+/* --- Grid de contribuição --- */
+.contribuicao-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-md);
+  margin-bottom: 48px;
+}
+
+.contribuicao-card {
+  background: var(--branco);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent);
+  padding: var(--espaco-lg);
+  box-shadow: var(--sombra-card);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-sm);
+  transition: var(--transicao);
+}
+
+.contribuicao-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(38, 33, 92, 0.12);
+}
+
+/* Ícones de contribuição — formas CSS puras */
+.contribuicao-icone {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-bottom: var(--espaco-xs);
+}
+
+.contribuicao-icone--oracao {
+  background: var(--background-terciario);
+  border: 2px solid var(--border-roxo);
+}
+
+.contribuicao-icone--voluntario {
+  background: hsl(40, 38%, 90%);
+  border: 2px solid var(--accent-light);
+}
+
+.contribuicao-icone--doacao {
+  background: hsl(350, 40%, 93%);
+  border: 2px solid hsl(350, 40%, 80%);
+}
+
+.contribuicao-card h3 {
+  font-size: 1rem;
+  color: var(--primary);
+}
+
+.contribuicao-card p {
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+  line-height: 1.6;
+  flex: 1;
+}
+
+/* --- Grid formulário + mapa --- */
+.contato-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-lg);
+}
+
+/* --- Formulário --- */
+.contato-form-area {
+  background: var(--branco);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: var(--espaco-lg);
+  box-shadow: var(--sombra-card);
+}
+
+.form-contato h3 {
+  font-size: 1.2rem;
+  color: var(--primary);
+  margin-bottom: var(--espaco-xs);
+}
+
+.form-contato > p {
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+  margin-bottom: var(--espaco-lg);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: var(--espaco-md);
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px 14px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--foreground);
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: var(--transicao);
+  appearance: none;
+}
+
+.form-control:hover {
+  border-color: var(--accent-light);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(209, 160, 57, 0.15);
+  background: var(--branco);
+}
+
+.form-control::placeholder {
+  color: var(--texto-suave);
+  opacity: 0.7;
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 120px;
+}
+
+select.form-control {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+
+/* --- Área de info (mapa + redes) --- */
+.contato-info-area {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-md);
+}
+
+.mapa-container {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  flex: 1;
+}
+
+.mapa-container iframe {
+  display: block;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  /* Contato */
+  .section-contato {
+    padding: 80px 0;
+  }
+
+  .contato-intro h2 {
+    font-size: 2rem;
+  }
+
+  .integracao-steps {
+    flex-direction: row;
+  }
+
+  .step-card {
+    flex: 1;
+  }
+
+  .contribuicao-grid {
+    flex-direction: row;
+  }
+
+  .contribuicao-card {
+    flex: 1;
+  }
+
+  .contato-grid {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .contato-form-area {
+    flex: 1.2;
+  }
+
+  .contato-info-area {
+    flex: 1;
+  }
+}

@@ -1,0 +1,103 @@
+.navbar {
+  background: var(--background);
+  border-bottom: 1px solid var(--border);
+  padding: 8px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-logo img {
+  height: 50px;
+}
+
+/* Hambúrguer — visível só no mobile */
+.navbar-toggle {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 6px 12px;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--foreground);
+  cursor: pointer;
+  transition: var(--transicao);
+}
+
+.navbar-toggle:hover,
+.navbar-toggle:focus {
+  background: var(--accent-light);
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Menu escondido no mobile por padrão */
+.navbar-collapse {
+  display: none;
+  position: absolute;
+  top: 67px;
+  left: 0;
+  right: 0;
+  background: var(--background);
+  border-bottom: 1px solid var(--border);
+  padding: var(--espaco-md);
+  z-index: 999;
+}
+
+.navbar-collapse.aberto {
+  display: block;
+}
+
+.navbar-nav {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-xs);
+}
+
+.nav-link {
+  display: block;
+  padding: 10px var(--espaco-md);
+  border-radius: var(--radius);
+  font-weight: 500;
+  color: var(--foreground);
+  transition: var(--transicao);
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: var(--primary);
+  background: var(--accent-light);
+}
+
+
+@media (min-width: 768px) {
+
+  .navbar-toggle {
+    display: none;
+  }
+
+  .navbar-collapse {
+    display: flex !important;
+    position: static;
+    background: transparent;
+    padding: 0;
+    border: none;
+  }
+
+  .navbar-nav {
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+
+}

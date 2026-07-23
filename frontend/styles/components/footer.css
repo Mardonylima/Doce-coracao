@@ -1,0 +1,138 @@
+.footer {
+  background-color: var(--primary);
+  color: var(--branco);
+  padding: 60px 0 0;
+}
+
+/* --- Grid principal --- */
+.footer-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-lg);
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --- Coluna identidade --- */
+.footer-logo {
+  height: 48px;
+  margin-bottom: var(--espaco-md);
+  /* logo provavelmente é escura — filtro para clarear no fundo escuro */
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
+.footer-brand-desc {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  opacity: 0.7;
+  max-width: 280px;
+  margin-bottom: var(--espaco-md);
+}
+
+.footer-redes {
+  display: flex;
+  gap: var(--espaco-sm);
+}
+
+.footer-rede-link {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  padding: 5px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  transition: var(--transicao);
+}
+
+.footer-rede-link:hover,
+.footer-rede-link:focus {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--accent);
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* --- Colunas de links --- */
+.footer-col-titulo {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: var(--espaco-md);
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links li {
+  font-size: 0.9rem;
+  opacity: 0.75;
+}
+
+.footer-links a {
+  color: var(--branco);
+  transition: var(--transicao);
+}
+
+.footer-links a:hover,
+.footer-links a:focus {
+  opacity: 1;
+  color: var(--accent);
+}
+
+/* --- Rodapé inferior --- */
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-sm);
+  padding: var(--espaco-lg) 0;
+  font-size: 0.8rem;
+  opacity: 0.55;
+  text-align: center;
+}
+
+.footer-lgpd {
+  color: var(--branco);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: var(--transicao);
+}
+
+.footer-lgpd:hover {
+  opacity: 1;
+  color: var(--accent);
+}
+
+
+@media (min-width: 768px) {
+
+  .footer-grid {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .footer-brand {
+    flex: 2;
+  }
+
+  .footer-nav,
+  .footer-contato {
+    flex: 1;
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+}

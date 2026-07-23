@@ -1,0 +1,34 @@
+:root {
+  /* Cores principais */
+  --background:            hsl(40, 33%, 96%);
+  --background-secondary:  hsl(41, 77%, 79%);
+  --background-terciario:  #f0edf8;
+  --foreground:            hsl(20, 10%, 15%);
+  --texto-suave:           #666;
+
+  --primary:               hsl(350, 40%, 30%);
+  --primary-hover:         hsl(350, 45%, 20%);
+
+  --accent:                hsl(40, 86%, 56%);
+  --accent-light:          hsl(40, 38%, 72%);
+
+  --border:                hsl(35, 20%, 85%);
+  --border-roxo:           rgba(83, 74, 183, 0.2);
+
+  --branco:                #ffffff;
+  --sombra-card:           0 2px 12px rgba(38, 33, 92, 0.08);
+
+  /* Tipografia */
+  --font-heading:  'Playfair Display', serif;
+  --font-body:     'Lato', sans-serif;
+
+  /* Layout */
+  --radius:        8px;
+  --espaco-xs:     0.25rem;
+  --espaco-sm:     0.5rem;
+  --espaco-md:     1rem;
+  --espaco-lg:     2rem;
+
+  /* Transição padrão */
+  --transicao:     0.3s ease;
+}
