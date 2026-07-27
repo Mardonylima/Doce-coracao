@@ -21,9 +21,8 @@ export default function AgendaSection() {
                             <div className="evento-meta-item">
                                 <span className="evento-meta-label">Datas</span>
                                 <ul className="evento-datas">
-                                    <li>10/04 às 19h</li>
-                                    <li>12/04 às 08h</li>
-                                    <li>24/04 às 19h</li>
+                                    <li>Domingos da 1ª e 3ª semana às 06h30</li>
+                                    <li>Sextas da 2ª e 4ª semana às 19h30</li>
                                 </ul>
                             </div>
                             <div className="evento-meta-item">
@@ -31,10 +30,8 @@ export default function AgendaSection() {
                                 <p>Catedral Basílica de Nossa Senhora das Neves</p>
                             </div>
                         </div>
-                        <p className="evento-descricao">Cada ato de bondade ao próximo é como se fosse feito ao próprio
-                            Deus. Venha participar!</p>
-                        <button type="button" className="btn btn-primary evento-btn"
-                            aria-label="Inscrever-se em Missão de Rua">
+                        <p className="evento-descricao">Cada ato de bondade ao próximo é como se fosse feito ao próprio Deus. Venha participar!</p>
+                        <button type="button" className="btn btn-primary evento-btn" aria-label="Inscrever-se em Missão de Rua">
                             Inscrever-se
                         </button>
                     </div>
@@ -51,17 +48,20 @@ export default function AgendaSection() {
                             <div className="evento-meta-item">
                                 <span className="evento-meta-label">Data</span>
                                 <ul className="evento-datas">
-                                    <li>11/04 às 19h</li>
+                                    <li>Aos 2º sábados do mês</li>
                                 </ul>
                             </div>
                             <div className="evento-meta-item">
                                 <span className="evento-meta-label">Local</span>
                                 <p>A definir</p>
                             </div>
+                            <div className="evento-meta-item">
+                                <span className="evento-meta-label">Descrição</span>
+                                <p>Confira horário atualizado no Instagram</p>
+                            </div>
                         </div>
                         <p className="evento-descricao">Junte-se a nós em adoração e oração mensal. Venha participar!</p>
-                        <button type="button" className="btn btn-primary evento-btn"
-                            aria-label="Inscrever-se em Adoração Mensal">
+                        <button type="button" className="btn btn-primary evento-btn" aria-label="Inscrever-se em Adoração Mensal">
                             Inscrever-se
                         </button>
                     </div>
@@ -85,10 +85,13 @@ export default function AgendaSection() {
                                 <span className="evento-meta-label">Local</span>
                                 <p>Centro Cultural Horizonte - João Pessoa, PB.</p>
                             </div>
+                            <div className="evento-meta-item">
+                                <span className="evento-meta-label">Descrição</span>
+                                <p>A confirmar, siga no Instagram</p>
+                            </div>
                         </div>
                         <p className="evento-descricao">Descubra a profundidade da espiritualidade em nossa comunidade.</p>
-                        <button type="button" className="btn btn-primary evento-btn"
-                            aria-label="Inscrever-se em Espiritualidade">
+                        <button type="button" className="btn btn-primary evento-btn" aria-label="Inscrever-se em Espiritualidade">
                             Inscrever-se
                         </button>
                     </div>
@@ -112,8 +115,7 @@ export default function AgendaSection() {
                             </div>
                         </div>
                         <p className="evento-descricao">Participe de nossos outros eventos e atividades.</p>
-                        <button type="button" className="btn btn-primary evento-btn"
-                            aria-label="Inscrever-se em outros eventos" disabled>
+                        <button type="button" className="btn btn-primary evento-btn" aria-label="Inscrever-se em outros eventos" disabled>
                             Em breve
                         </button>
                     </div>

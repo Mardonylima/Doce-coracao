@@ -60,10 +60,9 @@ export default function ContatoSection() {
 
                 <div className="contribuicao-card">
                     <div className="contribuicao-icone contribuicao-icone--doacao"></div>
-                    <h3>Doe</h3>
-                    <p>Seja um benfeitor das atividades da missão — desde materiais até a chegada às comunidades
-                        mais distantes.</p>
-                    <a href="#doacoes" className="btn btn-outline">Como doar</a>
+                    <h3>Seja um Benfeitor</h3>
+                    <p>Venha ser um benfeitor das atividades da missão — desde materiais até a chegada às comunidades mais distantes.</p>
+                    <a href="#doacoes" className="btn btn-outline">Como ser um Benfeitor</a>
                 </div>
 
             </div>
