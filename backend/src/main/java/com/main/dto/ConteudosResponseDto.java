@@ -12,6 +12,7 @@ public class ConteudosResponseDto {
     private String tipo;
     private String subtipo;
     private String tema;
+    private String tema_slug;
     private String conteudo;
     private String nivel;
 }

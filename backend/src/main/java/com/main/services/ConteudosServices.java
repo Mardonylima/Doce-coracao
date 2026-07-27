@@ -27,6 +27,7 @@ public class ConteudosServices {
             .tipo(conteudosEntity.getTipo())
             .subtipo(conteudosEntity.getSubtipo())
             .tema(conteudosEntity.getTema())
+            .tema_slug(conteudosEntity.getTemaRelacionamento().getSlug())
             .conteudo(conteudosEntity.getConteudo())
             .nivel(conteudosEntity.getNivel())
             .build();

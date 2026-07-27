@@ -10,7 +10,8 @@ public interface ConteudosRepository extends JpaRepository<ConteudosEntity, Long
     @Query(
         value = """
                 SELECT
-                c.*
+                c.*,
+                t.slug AS tema_slug
                 FROM conteudos c
                 JOIN temas t
                     ON c.tema_id = t.id
