@@ -28,6 +28,8 @@
   --espaco-sm:     0.5rem;
   --espaco-md:     1rem;
   --espaco-lg:     2rem;
+  --espaco-xl:     4rem;
+  --espaco-2xl:    6rem;
 
   /* Transição padrão */
   --transicao:     0.3s ease;
