@@ -51,11 +51,15 @@ export default function HeroSection() {
                                 {versiculo && (
                                     <>
                                         <h4>
-                                            {versiculo.tema}
+                                            {versiculo.titulo}
                                         </h4>
 
                                         <p>
                                             {versiculo.conteudo}
+                                        </p>
+
+                                        <p>
+                                            {versiculo.referencia}
                                         </p>
                                     </>
                                 )}
