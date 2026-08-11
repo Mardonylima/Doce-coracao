@@ -8,15 +8,16 @@ import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class ConteudosServices {
 
-    private final ConteudosRepository ConteudosRepository;
+    private final ConteudosRepository conteudosRepository;
 
     public List<ConteudosResponseDto> findAll() {
-        return ConteudosRepository.findAll()
+        return conteudosRepository.findAll()
             .stream()
             .map(this::toDto)
             .toList();
@@ -24,17 +25,29 @@ public class ConteudosServices {
 
     private ConteudosResponseDto toDto(ConteudosEntity conteudosEntity) {
         return ConteudosResponseDto.builder()
+            .id(conteudosEntity.getId())
             .tipo(conteudosEntity.getTipo())
-            .subtipo(conteudosEntity.getSubtipo())
-            .tema(conteudosEntity.getTema())
-            .tema_slug(conteudosEntity.getTemaRelacionamento().getSlug())
+            .classificacao(conteudosEntity.getClassificacao())
+            .titulo(conteudosEntity.getTitulo())
             .conteudo(conteudosEntity.getConteudo())
+            .referencia(conteudosEntity.getReferencia())
+            .fonte(conteudosEntity.getFonte())
+            .slug(conteudosEntity.getSlug())
+            .temaId(conteudosEntity.getTema().getId())
+            .autorId(
+                conteudosEntity.getAutor() != null
+                ? conteudosEntity.getAutor().getId()
+                : null
+            )
             .nivel(conteudosEntity.getNivel())
+            .ordem(conteudosEntity.getOrdem())
+            .status(conteudosEntity.getStatus())
+            .tempoLiturgico(conteudosEntity.getTempoLiturgico())
             .build();
     }
 
-    public ConteudosResponseDto findRandomCotidiano() {
-        ConteudosEntity conteudosEntity = ConteudosRepository.findRandomCotidiano();
-        return toDto(conteudosEntity);
+    public ConteudosResponseDto findRandomTemaSlug(String temaSlug) {
+        Optional<ConteudosEntity> conteudosEntity = conteudosRepository.findRandomTemaSlug(temaSlug);
+        return toDto(conteudosEntity.orElse(null));
     }
 }
