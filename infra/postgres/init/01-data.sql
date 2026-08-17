@@ -79,36 +79,6 @@ CREATE TABLE conteudo_virtudes (
             REFERENCES virtudes(id) ON DELETE CASCADE
 );
 
-<<<<<<< HEAD
-INSERT INTO autores (nome, slug, tipo) 
-VALUES
-<<<<<<< Updated upstream
-('São Josemaria Escrivá', 'sao-josemaria-escriva', 'santo'), -- 1
-('Santa Maria Madalena', 'santa-maria-madalena', 'santo'), -- 2
-('São João da Cruz', 'sao-joao-da-cruz', 'santo'), -- 3
-('São Tomé', 'santo-tomé', 'santo'), -- 4
-('São Francisco de Assis', 'sao-francisco-de-assis', 'santo'), -- 5
--- santos complementares.
-('São Bernardo de Claraval', 'sao-bernardo-de-claraval', 'santo'), -- 6
-('São Francisco de Sales', 'sao-francisco-de-sales', 'santo'), -- 7
-('Santa Teresa de Calcutá', 'santa-teresa-de-calcutta', 'santo'), -- 8
-('Santa Teresa de Ávila', 'santa-teresa-de-avila', 'santo'), -- 9
-('Santa Teresinha do Menino Jesus', 'santa-teresinha-do-menino-jesus', 'santo'), -- 10
-('Devocional', 'devocional', 'devocional'); -- 11
-=======
-    ('São Josemaria Escrivá', 'sao-josemaria-escriva', 'SANTO'),-- 1
-    ('São Francisco de Assis', 'sao-francisco-de-assis', 'SANTO'),-- 2
-    ('São João Evangelista', 'sao-joao-evangelista', 'SANTO'),-- 3
-    ('São Tomé', 'sao-tome', 'SANTO'),-- 4    
-    ('Santa Maria Madalena', 'santa-maria-madalena', 'SANTO'),-- 5
-    -- santos complementares.
-    ('Santa Teresa de Calcutá', 'santa-teresa-de-calcutta', 'SANTO'),-- 6
-    ('São Francisco de Sales', 'sao-francisco-de-sales', 'SANTO'),-- 7
-    ('Santa Teresa de Ávila', 'santa-teresa-de-avila', 'SANTO'),-- 8
-    ('Santa Teresinha do Menino Jesus', 'santa-teresinha-do-menino-jesus', 'SANTO'),-- 9
-    ('São Bernardo de Claraval', 'sao-bernardo-de-claraval', 'SANTO'); -- 10
->>>>>>> Stashed changes
-=======
 CREATE TABLE conteudo_tags (
     conteudo_id BIGINT NOT NULL,-- chave estrangeira para a tabela de conteúdos
     
@@ -120,67 +90,10 @@ CREATE TABLE conteudo_tags (
         FOREIGN KEY (tag_id)
             REFERENCES tags(id) ON DELETE CASCADE
 );
->>>>>>> develop
 
 INSERT INTO
     temas (nome, slug, descricao)
 VALUES
-<<<<<<< HEAD
-<<<<<<< Updated upstream
--- Tema central: Encontrar Deus na vida comum. 15 Versículos Bíblicos
-('Versículos', 'Bíblicos', 'Santificação do trabalho', 'Tudo o que fizerdes, fazei de coração, como para o Senhor e não para os homens.', 1, 1, NULL),
-('Versículos', 'Bíblicos', 'Deus nas ações ordinárias', 'Quer comais, quer bebais, ou façais qualquer outra coisa, fazei tudo para a glória de Deus.', 1, 1, NULL),
-('Versículos', 'Bíblicos', 'Excelência e dedicação', 'Tudo quanto fizer a tua mão, faze-o conforme as tuas forças.', 1, 1, NULL),
-('Versículos', 'Bíblicos', 'Fidelidade nas pequenas coisas', 'Quem é fiel no pouco também é fiel no muito.', 1, 1, NULL),
-('Versículos', 'Bíblicos', 'Unidade de vida', 'Tudo o que fizerdes, por palavras ou por obras, fazei tudo em nome do Senhor Jesus.', 1, 1, NULL),
-('Versículos', 'Bíblicos', 'Perseverança diária', 'Bem-aventurados aqueles servos que o senhor, ao chegar, encontrar vigilantes.', 1, 1, NULL),
-('Versículos', 'Bíblicos', 'Presença de Deus no cotidiano', 'Permanecei em Mim, e Eu permanecerei em vós.', 1, 1, NULL),
-('Versículos', 'Bíblicos', 'Dependência da graça', 'Sem Mim nada podeis fazer.', 1, 1, NULL),
-('Versículos', 'Bíblicos', 'Prioridade espiritual', 'Buscai primeiro o Reino de Deus e a sua justiça.', 1, 1, NULL),
-('Versículos', 'Bíblicos', 'Constância', 'Aquele que perseverar até o fim será salvo.', 1, 1, NULL),
-('Versículos', 'Bíblicos', 'Transformar o dever em missão', 'O meu alimento é fazer a vontade daquele que me enviou.', 1, 1, NULL),
-('Versículos', 'Bíblicos', 'Serviço escondido', 'Quem quiser ser o primeiro, seja o servo de todos.', 1, 1, NULL),
-('Versículos', 'Bíblicos', 'Gratidão diária', 'Em tudo dai graças.', 1, 1, NULL),
-('Versículos', 'Bíblicos', 'Perseverança no trabalho e na fé', 'Sede firmes e constantes, sempre abundantes na obra do Senhor.', 1, 1, NULL),
-('Versículos', 'Bíblicos', 'Contemplação no meio da vida comum', 'Maria guardava todas estas coisas, meditando-as em seu coração.', 1, 1, NULL),
--- CITAÇÕES AUTÊNTICAS. Referência principal: São Josemaria Escrivá
-('Citação', 'Autentico', 'Presença de Deus.', 'Ou sabemos encontrar o Senhor na nossa vida quotidiana, ou não O encontraremos nunca.', 1, 1, NULL),
-('Citação', 'Autentico', 'Santificação do cotidiano.', 'Há algo de santo, de divino, escondido nas situações mais comuns.', 1, 1, NULL),
-('Citação', 'Autentico', 'Trabalho como vocação.', 'A tua vida de trabalho corrente, entre os teus semelhantes, é o lugar do teu encontro com Cristo.', 1, 1, NULL),
-('Citação', 'Autentico', 'Valor espiritual do trabalho.', 'Não podes santificar-te sem trabalho.', 1, 1, NULL),
-('Citação', 'Autentico', 'Atenção e fidelidade.', 'Faze o que deves e está no que fazes.', 1, 1, NULL),
-('Citação', 'Autentico', 'Pequenos atos.', 'As coisas pequenas, feitas por amor, são grandes.', 1, 1, NULL),
-('Citação', 'Autentico', 'Alegria no dever.', 'O segredo da felicidade está não em fazer sempre o que se gosta, mas em gostar sempre do que se faz.', 1, 1, NULL),
-('Citação', 'Autentico', 'Intenção reta.', 'Não digas: é uma ninharia. Faz tudo por Amor.', 1, 1, NULL),
-('Citação', 'Autentico', 'Encontro diário com Deus.', 'Deus espera-nos cada day.', 1, 1, NULL),
-('Citação', 'Autentico', 'Tríplice dimensão do trabalho.', 'Santifica o teu trabalho. Santifica-te no teu trabalho. Santifica os outros através do teu trabalho.', 1, 1, NULL),
-('Citação', 'Autentico', 'Encarnação e vida comum.', 'O valor divino do humano.', 1, 1, NULL),
-('Citação', 'Autentico', 'Vida ordinária.', 'Não há outra estrada, filhos meus: ou sabemos encontrar o Senhor na vida de todos os dias, ou nunca O encontraremos.', 1, 1, NULL),
-('Citação', 'Autentico', 'Fidelidade.', 'A santidade grande consiste em cumprir os deveres pequenos de cada instante.', 1, 1, NULL),
-('Citação', 'Autentico', 'Heroísmo cotidiano.', 'Transformar a prosa diária em verso heroico.', 1, 1, NULL),
-('Citação', 'Autentico', 'Vida interior.', 'Um minuto a mais de recolhimento vale ouro.', 1, 1, NULL),
--- CITAÇÕES COMPLEMENTARES. Referência principal: contidiano
-('Citação', 'Complementares', 'Fé deve ser praticada com o coração.', 'A medida do amor é amar sem medida.', 1, 6, NULL),
-('Citação', 'Complementares', 'Milagre moral', 'Faze tudo por amor; nada por força.', 1, 7, NULL),
-('Citação', 'Complementares', 'O poder das pequenas ações', 'Nem todos podem fazer grandes coisas, mas podemos fazer pequenas coisas com grande amor.', 1, 8, NULL),
-('Citação', 'Complementares', 'Santa Teresa de Ávila', 'A perfeição consiste em fazer a vontade de Deus.', 1, 9, NULL),
-('Citação', 'Complementares', 'Pequenos gestos', 'O bom Deus não olha para a grandeza das nossas obras, mas para o amor com que são feitas.', 1, 10, NULL),
--- # CONTEÚDO DEVOCIONAL ORIGINAL DO JHS DOCE CORAÇÂO
-('Devocional', 'Original', 'Cotidiano', 'Senhor, ensina-me a reconhecer Teus passos escondidos entre as tarefas deste dia.', 1, 11, NULL),
-('Devocional', 'Original', 'Cotidiano', 'O amor transforma rotinas em oferendas.', 1, 11, NULL),
-('Devocional', 'Original', 'Cotidiano', 'Nenhum trabalho é pequeno quando é realizado diante de Deus.', 1, 11, NULL),
-('Devocional', 'Original', 'Cotidiano', 'A santidade cresce silenciosamente nas fidelidades que ninguém vê.', 1, 11, NULL),
-('Devocional', 'Original', 'Cotidiano', 'Deus não desperdiça os esforços feitos por amor.', 1, 11, NULL),
-('Devocional', 'Original', 'Cotidiano', 'O altar do cristão muitas vezes é a própria mesa de trabalho.', 1, 11, NULL),
-('Devocional', 'Original', 'Cotidiano', 'A graça visita os momentos comuns mais do que imaginamos.', 1, 11, NULL),
-('Devocional', 'Original', 'Cotidiano', 'A presença de Deus não interrompe a rotina; ela a ilumina.', 1, 11, NULL),
-('Devocional', 'Original', 'Cotidiano', 'Hoje pode ser um dia comum para o mundo e extraordinário para a alma.', 1, 11, NULL),
-('Devocional', 'Original', 'Cotidiano', 'O céu começa quando oferecemos a Deus aquilo que estamos vivendo agora.', 1, 11, NULL);
--- # MEDITAÇÕES ORIGINAIS DO JHS DOCE CORAÇÃO
--- PENSAR NAS ALTERARÇÕES QUE TENHO QUE FAZER PARA INCLUIR PARA FAZER AS MEDITAÇÕES E ORAÇÕES.
---( 'Meditação', '', '', '', 1, 11, NULL),
-=======
-=======
     ('Cotidiano', 'cotidiano', 'Tema sobre o cotidiano'),
     ('Perfeita Alegria', 'perfeita-alegria', 'Tema sobre alegria perfeita'),
     ('Pequenez', 'pequenez', 'Tema sobre a pequenez'),
@@ -205,7 +118,6 @@ VALUES
 INSERT INTO
     virtudes (nome, slug)
 VALUES
->>>>>>> develop
     ('Fé', 'fe'),
     ('Esperança', 'esperanca'),
     ('Caridade', 'caridade'),
@@ -394,7 +306,3 @@ VALUES
     ('VERSICULO', 'BIBLICA', 'PRINCIPAL', 'Cristo habita naquele que o ama', 'Se alguém me ama, guardará a minha palavra; meu Pai o amará, e nós viremos a ele e faremos nele a nossa morada.', 'João 14,23', 'Bíblia Sagrada', 'cristo-habita-naquele-que-o-ama-jo-14-23', 5, NULL, NULL, 33, 'publicado', NULL),
     ('VERSICULO', 'BIBLICA', 'PRINCIPAL', 'O amor que responde ao Amor', 'Nós amamos porque ele nos amou primeiro.', '1 João 4,19', 'Bíblia Sagrada', 'amamos-porque-ele-nos-amou-primeiro-1jo-4-19', 5, NULL, NULL, 34, 'publicado', NULL),
     ('VERSICULO', 'BIBLICA', 'PRINCIPAL', 'Maria Madalena anuncia o Ressuscitado', 'Maria Madalena foi anunciar aos discípulos: “Eu vi o Senhor!”, e contou-lhes o que ele lhe tinha dito.', 'João 20,18', 'Bíblia Sagrada', 'maria-madalena-anuncia-o-ressuscitado-jo-20-18', 5, 5, NULL, 35, 'publicado', NULL);
-<<<<<<< HEAD
->>>>>>> Stashed changes
-=======
->>>>>>> develop
