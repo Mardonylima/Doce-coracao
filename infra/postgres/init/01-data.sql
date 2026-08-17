@@ -1,46 +1,85 @@
 CREATE TABLE temas (
-    id BIGSERIAL PRIMARY KEY, -- id referenciando cada tema, como "Cotidiano", "Perfeita Alegria", "Pequenez", "Abandono" ou "Esponsalidade"
-    nome VARCHAR(100) NOT NULL, -- nome do tema, como "Cotidiano", "Perfeita Alegria", "Pequenez", "Abandono" ou "Esponsalidade"
-    slug VARCHAR(100) UNIQUE NOT NULL, -- slug para identificar o tema de forma única, como "cotidiano", "perfeita-alegria", "pequenez", "abandono" ou "esponsalidade"
-    descricao TEXT -- descrição do tema, como "Tema relacionado a assuntos do dia a dia", "Tema sobre alegria perfeita", "Tema sobre a pequenez", "Tema sobre o abandono" ou "Tema sobre a esponsalidade"
+    id BIGSERIAL PRIMARY KEY,-- identificador único do tema
+
+    nome VARCHAR(100) NOT NULL,-- nome do tema
+    slug VARCHAR(100) UNIQUE NOT NULL,-- slug do tema, usado para URLs amigáveis    
+    descricao TEXT,-- descrição detalhada do tema
+
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
 CREATE TABLE autores (
-    id BIGSERIAL PRIMARY KEY, -- id referenciando cada autor, como "Santa Maria Madalena", "São Josemaria Escrivá" e etc
-    nome VARCHAR(255) NOT NULL, -- nome do autor, como "Santa Maria Madalena", "São Josemaria Escrivá" e etc
-    slug VARCHAR(255) UNIQUE NOT NULL, -- slug para identificar o autor de forma única, como "santa-maria-madalena", "sao-josemaria-escriva" e etc
-    tipo VARCHAR(50) NOT NULL -- tipo do autor, como "santo", "escritor" ou "escritura"
+    id BIGSERIAL PRIMARY KEY,-- identificador único do autor
+
+    nome VARCHAR(255) NOT NULL,-- nome completo do autor    
+    slug VARCHAR(255) UNIQUE NOT NULL,-- slug do autor, usado para URLs amigáveis    
+    tipo VARCHAR(50) NOT NULL,-- tipo do autor
+    CHECK (tipo IN ('SANTO', 'PAPA', 'PADRE', 'MINISTERIO')),-- restrição para o tipo do autor
+    
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE virtudes (
+    id BIGSERIAL PRIMARY KEY,-- identificador único da virtude
+    
+    nome VARCHAR(100) NOT NULL,-- nome da virtude (ex: fé, esperança, caridade, etc.)    
+    slug VARCHAR(100) UNIQUE NOT NULL -- slug da virtude, usado para URLs amigáveis
+);
+
+CREATE TABLE tags (
+    id BIGSERIAL PRIMARY KEY,-- identificador único da tag
+    
+    nome VARCHAR(100) NOT NULL,-- nome da tag (ex: trabalho, oração, estudo)    
+    slug VARCHAR(100) UNIQUE NOT NULL -- slug da tag, usado para URLs amigáveis
 );
 
 CREATE TABLE conteudos (
-    id BIGSERIAL PRIMARY KEY, -- id referenciando cada frase, oração, reflexão, etc
+    id BIGSERIAL PRIMARY KEY,-- identificador único do conteúdo
 
-    tipo VARCHAR(50) NOT NULL, -- verciculo, citação, oração, meditação e desafio
-    subtipo VARCHAR(50), -- bliblica, devocional, etc
+    tipo VARCHAR(30) NOT NULL,-- tipo do conteúdo
+    CHECK (tipo IN ('VERSICULO', 'CITACAO', 'ORACAO', 'MEDITACAO', 'DESAFIO')),-- restrição para o tipo do conteúdo
+    classificacao VARCHAR(30) NOT NULL,-- classificação do conteúdo
+    CHECK (classificacao IN ('BIBLICA', 'AUTENTICA', 'TRADICAO', 'DEVOCIONAL')),-- restrição para a classificação do conteúdo
+    papel VARCHAR(30) NOT NULL DEFAULT 'PRINCIPAL',
+    CHECK (papel IN ('PRINCIPAL', 'COMPLEMENTAR')),-- restrição para o papel do conteúdo  
+    titulo VARCHAR(255),-- título do conteúdo    
+    conteudo TEXT NOT NULL,-- conteúdo principal (ex: texto da oração, citação, etc.)    
+    referencia VARCHAR(255),-- referência do conteúdo (ex: livro, capítulo, versículo, etc.)    
+    fonte VARCHAR(255),-- fonte do conteúdo (ex: Bíblia, Catecismo, etc.)    
+    slug VARCHAR(255) UNIQUE NOT NULL,-- slug do conteúdo, usado para URLs amigáveis    
+    tema_id BIGINT NOT NULL,-- chave estrangeira para a tabela de temas    
+    autor_id BIGINT,-- chave estrangeira para a tabela de autores    
+    nivel VARCHAR(30),-- nível do conteúdo (ex: iniciante, intermediário, avançado)
+    CHECK (nivel IN ('iniciante', 'intermediário', 'avançado')),-- restrição para o nível do conteúdo
+    ordem INTEGER DEFAULT 0,-- ordem de exibição do conteúdo    
+    status VARCHAR(20) DEFAULT 'publicado',-- status do conteúdo (ex: publicado, rascunho, arquivado)
+    CHECK (status IN ('publicado', 'rascunho', 'arquivado')),-- restrição para o status do conteúdo
+    tempo_liturgico VARCHAR(40),-- tempo litúrgico associado ao conteúdo (ex: Advento, Quaresma, Páscoa, etc.)
+    
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    updated_at TIMESTAMPTZ DEFAULT NOW(),
 
-    tema VARCHAR(255), -- tema para identificar o conteúdo, como "Frase do Dia", "Oração Matinal", "Meditação Noturna" ou "Desafio Semanal".
-
-    conteudo TEXT NOT NULL, -- o texto principal do conteúdo, que pode ser uma frase, oração, reflexão ou desafio.
-
-    tema_id BIGINT NOT NULL, -- para associar o conteúdo a um tema específico, como "Cotidiano", "Perfeita Alegria", "Pequenez", "Abandono" ou "Esponsalidade".
-    autor_id BIGINT, -- para associar o conteúdo a um autor específico, como "Santa Maria Madalena", "São Josemaria Escrivá" e etc, ou deixar em branco para conteúdos sem um autor específico, como versículos bíblicos.
-
-    nivel VARCHAR(50), -- para classificar o conteúdo em níveis de dificuldade ou profundidade, como "iniciante", "intermediário" e "avançado" nos desafios.
-
-    created_at TIMESTAMP DEFAULT NOW(), -- para registrar a data e hora de criação do conteúdo.
-
-    FOREIGN KEY (tema_id) REFERENCES temas(id),
-    FOREIGN KEY (autor_id) REFERENCES autores(id)
+    FOREIGN KEY (tema_id)
+        REFERENCES temas(id),
+    FOREIGN KEY (autor_id)
+        REFERENCES autores(id)
 );
 
-INSERT INTO temas (nome, slug, descricao) 
-VALUES
-('Cotidiano', 'cotidiano', 'Tema relacionado a assuntos do dia a dia'),
-('Perfeita Alegria', 'perfeita-alegria', 'Tema sobre alegria perfeita'),
-('Pequenez', 'pequenez', 'Tema sobre a pequenez'),
-('Abandono', 'abandono', 'Tema sobre o abandono'),
-('Esponsalidade', 'esponsalidade', 'Tema sobre a esponsalidade');
+CREATE TABLE conteudo_virtudes (
+    conteudo_id BIGINT NOT NULL,-- chave estrangeira para a tabela de conteúdos
+    
+    virtude_id BIGINT NOT NULL,-- chave estrangeira para a tabela de virtudes
+    
+    PRIMARY KEY (conteudo_id, virtude_id),
+        FOREIGN KEY (conteudo_id) 
+            REFERENCES conteudos(id) ON DELETE CASCADE,
+        FOREIGN KEY (virtude_id) 
+            REFERENCES virtudes(id) ON DELETE CASCADE
+);
 
+<<<<<<< HEAD
 INSERT INTO autores (nome, slug, tipo) 
 VALUES
 <<<<<<< Updated upstream
@@ -69,9 +108,24 @@ VALUES
     ('Santa Teresinha do Menino Jesus', 'santa-teresinha-do-menino-jesus', 'SANTO'),-- 9
     ('São Bernardo de Claraval', 'sao-bernardo-de-claraval', 'SANTO'); -- 10
 >>>>>>> Stashed changes
+=======
+CREATE TABLE conteudo_tags (
+    conteudo_id BIGINT NOT NULL,-- chave estrangeira para a tabela de conteúdos
+    
+    tag_id BIGINT NOT NULL,-- chave estrangeira para a tabela de tags
+    
+    PRIMARY KEY (conteudo_id, tag_id),
+        FOREIGN KEY (conteudo_id)
+            REFERENCES conteudos(id) ON DELETE CASCADE,
+        FOREIGN KEY (tag_id)
+            REFERENCES tags(id) ON DELETE CASCADE
+);
+>>>>>>> develop
 
-INSERT INTO conteudos (tipo, subtipo, tema, conteudo, tema_id, autor_id, nivel)
+INSERT INTO
+    temas (nome, slug, descricao)
 VALUES
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 -- Tema central: Encontrar Deus na vida comum. 15 Versículos Bíblicos
 ('Versículos', 'Bíblicos', 'Santificação do trabalho', 'Tudo o que fizerdes, fazei de coração, como para o Senhor e não para os homens.', 1, 1, NULL),
@@ -126,6 +180,32 @@ VALUES
 -- PENSAR NAS ALTERARÇÕES QUE TENHO QUE FAZER PARA INCLUIR PARA FAZER AS MEDITAÇÕES E ORAÇÕES.
 --( 'Meditação', '', '', '', 1, 11, NULL),
 =======
+=======
+    ('Cotidiano', 'cotidiano', 'Tema sobre o cotidiano'),
+    ('Perfeita Alegria', 'perfeita-alegria', 'Tema sobre alegria perfeita'),
+    ('Pequenez', 'pequenez', 'Tema sobre a pequenez'),
+    ('Abandono', 'abandono', 'Tema sobre o abandono'),
+    ('Esponsalidade', 'esponsalidade', 'Tema sobre a esponsalidade');
+
+INSERT INTO
+    autores (nome, slug, tipo)
+VALUES
+    ('São Josemaria Escrivá', 'sao-josemaria-escriva', 'SANTO'),-- 1
+    ('São Francisco de Assis', 'sao-francisco-de-assis', 'SANTO'),-- 2
+    ('São João Evangelista', 'sao-joao-evangelista', 'SANTO'),-- 3
+    ('São Tomé', 'sao-tome', 'SANTO'),-- 4    
+    ('Santa Maria Madalena', 'santa-maria-madalena', 'SANTO'),-- 5
+    -- santos complementares.
+    ('Santa Teresa de Calcutá', 'santa-teresa-de-calcutta', 'SANTO'),-- 6
+    ('São Francisco de Sales', 'sao-francisco-de-sales', 'SANTO'),-- 7
+    ('Santa Teresa de Ávila', 'santa-teresa-de-avila', 'SANTO'),-- 8
+    ('Santa Teresinha do Menino Jesus', 'santa-teresinha-do-menino-jesus', 'SANTO'),-- 9
+    ('São Bernardo de Claraval', 'sao-bernardo-de-claraval', 'SANTO'); -- 10
+
+INSERT INTO
+    virtudes (nome, slug)
+VALUES
+>>>>>>> develop
     ('Fé', 'fe'),
     ('Esperança', 'esperanca'),
     ('Caridade', 'caridade'),
@@ -314,4 +394,7 @@ VALUES
     ('VERSICULO', 'BIBLICA', 'PRINCIPAL', 'Cristo habita naquele que o ama', 'Se alguém me ama, guardará a minha palavra; meu Pai o amará, e nós viremos a ele e faremos nele a nossa morada.', 'João 14,23', 'Bíblia Sagrada', 'cristo-habita-naquele-que-o-ama-jo-14-23', 5, NULL, NULL, 33, 'publicado', NULL),
     ('VERSICULO', 'BIBLICA', 'PRINCIPAL', 'O amor que responde ao Amor', 'Nós amamos porque ele nos amou primeiro.', '1 João 4,19', 'Bíblia Sagrada', 'amamos-porque-ele-nos-amou-primeiro-1jo-4-19', 5, NULL, NULL, 34, 'publicado', NULL),
     ('VERSICULO', 'BIBLICA', 'PRINCIPAL', 'Maria Madalena anuncia o Ressuscitado', 'Maria Madalena foi anunciar aos discípulos: “Eu vi o Senhor!”, e contou-lhes o que ele lhe tinha dito.', 'João 20,18', 'Bíblia Sagrada', 'maria-madalena-anuncia-o-ressuscitado-jo-20-18', 5, 5, NULL, 35, 'publicado', NULL);
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+>>>>>>> develop

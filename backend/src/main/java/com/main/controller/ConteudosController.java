@@ -27,7 +27,7 @@ public class ConteudosController {
 
     @GetMapping("/random/cotidiano")
     @ResponseStatus(HttpStatus.OK)
-    public ConteudosResponseDto findRandomCotidiano() {
-        return conteudosServices.findRandomCotidiano();
+    public ConteudosResponseDto findRandomTemaSlug() {
+        return conteudosServices.findRandomTemaSlug("cotidiano");
     }
 }
