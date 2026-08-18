@@ -14,7 +14,10 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/v1/conteudos/random/cotidiano")
+                        .requestMatchers(
+                            "/v1/conteudos/random/cotidiano", 
+                            "/v1/conteudos/temas/slides"
+                        )
                         .permitAll()
                         .anyRequest()
                         .authenticated());

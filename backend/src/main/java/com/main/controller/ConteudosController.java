@@ -30,4 +30,11 @@ public class ConteudosController {
     public ConteudosResponseDto findRandomTemaSlug() {
         return conteudosServices.findRandomTemaSlug("cotidiano");
     }
+
+    @GetMapping("/temas/slides")
+    @ResponseStatus(HttpStatus.OK)
+    public List<ConteudosResponseDto> findRandomContentByTema() {
+        return conteudosServices.findRandomContentByTema();
+    }
+
 }

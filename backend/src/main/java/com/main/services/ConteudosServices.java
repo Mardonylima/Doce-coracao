@@ -50,4 +50,13 @@ public class ConteudosServices {
         Optional<ConteudosEntity> conteudosEntity = conteudosRepository.findRandomTemaSlug(temaSlug);
         return toDto(conteudosEntity.orElse(null));
     }
+
+    public List<ConteudosResponseDto> findRandomContentByTema() {
+        return conteudosRepository
+            .findRandomContentByTema()
+            .stream()
+            .map(this::toDto)
+            .toList();
+    }
+
 }
